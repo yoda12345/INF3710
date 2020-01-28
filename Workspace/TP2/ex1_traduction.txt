@@ -1,0 +1,17 @@
+Hotel (number, name, town)
+PK: number
+
+Client (id, nas, name, sex, age, city)
+PK: id
+
+Room (number, type, price)
+-- room needs hotel(number) + number to be identified
+PK: number
+FK hotelNum references Hotel(number)
+
+Reservation (clientID, hotelNumber, roomNumber, dateArrival, dateDeparture)
+-- all attributs needed to identify (composite key)
+FK clientID references Client(id)
+FK hotelNumber references Hotel(number)
+FK roomNumber references Room(number)
+
